@@ -1,0 +1,140 @@
+.date-filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+}
+.display-between {
+  display: flex;
+  flex-direction: row;
+  margin-right: 15px;
+}
+.date-input {
+  width: 200px;
+}
+.report-card {
+  width: 30%;
+  padding: 10px;
+  box-shadow: 3px 3px 3px #010000;
+}
+@media screen and (max-width: 900px) {
+  .report-card {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .report-card {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .report-card {
+    width: 80%;
+  }
+}
+.customer-report {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.select-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.select {
+  margin-top: 10px;
+  width: 15vw;
+  height: 35px;
+  border: 1px solid #010000;
+}
+.icon {
+  margin-top: 9px;
+  height: 36px;
+}
+@media screen and (max-width: 500px) {
+  .select {
+    width: 40vw;
+  }
+}
+.report-table {
+  min-height: 50vh;
+  background-color: #ffffff;
+  overflow-x: scroll;
+  width: 45vw;
+}
+.user-table-container {
+  height: 60vh;
+  overflow-y: scroll;
+}
+@media screen and (max-width: 1024px) {
+  .user-table {
+    width: 80vw;
+  }
+}
+.tables {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 1024px) {
+  .tables {
+    flex-direction: column;
+  }
+}
+.report-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.report-users-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+@media screen and (max-width: 900px) {
+  .report-buttons {
+    flex-direction: column;
+  }
+}
+.btns {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+.report-date-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 900px) {
+  .report-date-filter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.reportbtn {
+  width: 15vw;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+@media screen and (max-width: 900px) {
+  .reportbtn {
+    width: 30vw;
+  }
+}

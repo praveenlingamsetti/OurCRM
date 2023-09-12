@@ -1,0 +1,83 @@
+.opportunities-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+.opportunity-container {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+.opportunity-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+@media screen and (max-width: 500px) {
+  .opportunity-headings {
+    flex-direction: column;
+  }
+}
+.sub-btn {
+  margin-bottom: 10px;
+  background-color: #1d1a69;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 6px;
+}
+.opportunity-main-heading {
+  font-size: 35px;
+  text-decoration: underline;
+  color: #1d1a69;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .opportunity-main-heading {
+    font-size: 25px;
+  }
+}
+.opportunity-table {
+  background-color: #ffffff;
+  width: 100%;
+}
+.btns-container {
+  display: flex;
+  flex-direction: row;
+}
+.update-sub-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #1d1a69;
+  border-radius: 8px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+}
+.opportunity-list-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #1d1a69;
+  border-radius: 8px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+}
+.subopportunity-container {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+}
+.subopportunity-main-heading {
+  font-size: 25px;
+  text-decoration: underline;
+  color: #1d1a69;
+  margin-bottom: 20px;
+}

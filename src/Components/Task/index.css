@@ -1,0 +1,187 @@
+.tasks-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.taskbtn {
+  width: 150px;
+  height: 40px;
+  color: #ffffff;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+.status-select {
+  width: 10vw;
+  margin-right: 10px;
+  border: 1px solid #010000;
+}
+@media screen and (max-width: 550px) {
+  .status-select {
+    width: 40%;
+    height: 35px;
+    margin-bottom: 10px;
+  }
+}
+.task-table-container {
+  height: 40vh;
+  overflow-y: scroll;
+}
+@media screen and (max-width: 300px) {
+  .taskbtn {
+    width: 100px;
+    font-size: 12px;
+  }
+}
+.task-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+.main-heading {
+  font-size: 35px;
+  text-decoration: underline;
+  color: #1d1a69;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .main-heading {
+    font-size: 25px;
+  }
+}
+.text-center {
+  text-align: center;
+}
+.selectedTask-container {
+  margin-left: 5%;
+  width: 90%;
+  height: 300px;
+  border: 2px solid #3498db; /* Border color */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .selectedTask-container {
+    height: 550px;
+  }
+  .details-container {
+    min-height: 300px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: auto;
+  }
+}
+.details-container {
+  text-align: left;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+}
+.test-report-date-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.test-report-display-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+@media screen and (max-width: 580px) {
+  .test-report-date-filter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .test-report-display-between {
+    margin-bottom: 10px;
+  }
+  .table-data {
+    font-size: 16px;
+  }
+  .view-button {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .test-report-display-between {
+    flex-direction: column;
+  }
+}
+.test-report-date-input {
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-right: 15px;
+}
+@media screen and (max-width: 400px) {
+  .test-report-date-input {
+    width: 130px;
+  }
+}
+.table {
+  background-color: #ffffff;
+  width: 100%;
+}
+.each-AddTask-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+}
+.AddTask-container {
+  width: 100%;
+  height: 70vh;
+  overflow-y: scroll;
+  background-color: white; /* Set your desired background color */
+  border-radius: 12px;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1); /*Add a subtle shadow */
+  padding: 20px; /* Add some padding for content */
+}
+.AddTask-container-fold {
+  width: 100%;
+  height: fit-content;
+  background-color: white; /* Set your desired background color */
+  border-radius: 8px;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  padding: 14px;
+}
+.AddTask-container-sm {
+  overflow-y: scroll;
+  height: 70vh;
+  background-color: white; /* Set your desired background color */
+  border-radius: 8px;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow  */
+  padding: 14px;
+}
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-left: 5%;
+  padding: 5px;
+}

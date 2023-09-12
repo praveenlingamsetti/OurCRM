@@ -1,0 +1,63 @@
+.users-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+.userbtn {
+  width: 200px;
+  height: 40px;
+  color: #ffffff;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.user-table-container {
+  height: 60vh;
+  overflow-y: scroll;
+}
+@media screen and (max-width: 400px) {
+  .userbtn {
+    width: 150px;
+    font-size: 13px;
+  }
+}
+.user-container {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+.user-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+.user-view-btn {
+  margin-bottom: 10px;
+  background-color: #1d1a69;
+  border-radius: 6px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+.user-main-heading {
+  font-size: 35px;
+  text-decoration: underline;
+  color: #1d1a69;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .user-main-heading {
+    font-size: 25px;
+  }
+}
+.user-table {
+  background-color: #ffffff;
+  width: 100%;
+}

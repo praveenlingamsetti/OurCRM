@@ -1,0 +1,32 @@
+.customer-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+.customer-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+.customer-main-heading {
+  font-size: 35px;
+  text-decoration: underline;
+  color: #1d1a69;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .customer-main-heading {
+    font-size: 25px;
+  }
+}
+.customer-table {
+  background-color: #ffffff;
+  width: 100%;
+}
+.customer-table-container {
+  height: 60vh;
+  overflow-y: scroll;
+}

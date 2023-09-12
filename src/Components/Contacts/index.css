@@ -1,0 +1,108 @@
+.contacts-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+.contactbtn {
+  width: 200px;
+  height: 40px;
+  color: #ffffff;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+@media screen and (max-width: 550px) {
+  .contactbtn {
+    width: 150px;
+    height: 60px;
+    font-size: 15px;
+  }
+}
+.contact-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+.contact-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+.contact-main-heading {
+  font-size: 35px;
+  text-decoration: underline;
+  color: #1d1a69;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .contact-main-heading {
+    font-size: 25px;
+  }
+}
+.contact-table-container {
+  height: 60vh;
+  overflow-y: scroll;
+}
+@media screen and (max-width: 500px) {
+  .contact-table-container {
+    height: 58vh;
+  }
+}
+.contact-table {
+  background-color: #ffffff;
+  width: 100%;
+}
+.upload-container {
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 40px;
+  width: 40vw;
+  border: 1px solid #010000;
+  box-shadow: 3px 3px 3px #010000;
+  text-align: center;
+}
+.upload-heading {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.upload-input {
+  margin-left: 80px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 920px) {
+  .upload-container {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .upload-container {
+    width: 90%;
+  }
+  .upload-heading {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .upload-input {
+    margin-left: 20px;
+    width: 180px;
+  }
+  .upload-container {
+    width: 100%;
+  }
+  .upload-heading {
+    font-size: 18px;
+  }
+}
