@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import CrmContext from "../../CrmContext";
 
 // Define initial state for the user object
 const initialState = {
@@ -10,9 +12,12 @@ const initialState = {
 };
 
 const Login = () => {
+  const { role, setRole } = useContext(CrmContext);
   // Initialize state variables using the useState hook
   const [user, setUser] = useState(initialState);
-  //const navigate = useNavigate();
+  const [userRole, setUserRole] = useState(role);
+
+  const navigate = useNavigate();
 
   // Function to handle input changes and update the user state
   const changeHandler = (e) => {
@@ -47,27 +52,60 @@ const Login = () => {
   // Function to handle form submission and call login API
   const submitHandler = async (e) => {
     e.preventDefault();
-    await axios
-      .post("/auth/login", user)
-      .then((response) => {
-        // console.log(response.data);
-        localStorage.setItem("token", response.data.jwtToken);
-        localStorage.setItem("userEmail", user.email);
-        localStorage.setItem("userId", response.data.userId);
-        toast.success("Login successful");
-        if (response.status === 200) {
-          // Redirect to the home page with user email in the state
-          // navigate("/home", { state: user.email });
-        }
-        // Reset the user state to the initial state
-        setUser(initialState);
-        toast.success("login in");
-      })
-      .catch((error) => {
-        console.log(error.message);
-        // toast.error(error.response.data)
-      });
+    try {
+      const response = await axios.post("/auth/login", user);
+      localStorage.setItem("token", response.data.jwtToken);
+      localStorage.setItem("userEmail", user.email);
+      localStorage.setItem("userId", response.data.userId);
+      toast.success("Login successful");
+      if (response.status === 200) {
+        // Fetch the user's role after successful login
+        const roleResponse = await axios.get(
+          `/api/getRoleValueAndReportingTo/${user.email}`
+        );
+        console.log(roleResponse);
+        // console.log(response);
+        //setUserRole(roleResponse.data); // Store the user's role in state
+        setRole(roleResponse.data.role);
+        navigate("/all_tasks");
+      }
+      // Reset the user state to the initial state
+      setUser(initialState);
+      toast.success("Login in");
+    } catch (error) {
+      console.log(error.message);
+      // Handle login error and display appropriate messages
+      if (error.response) {
+        // Handle error response from the login API
+        toast.error(error.response.data);
+      } else {
+        // Handle network or other errors
+        toast.error(
+          "An error occurred while logging in. Please try again later."
+        );
+      }
+    }
   };
+
+  useEffect(() => {
+    if (user.email) {
+      const fetchUserRole = async () => {
+        try {
+          const roleResponse = await axios.get(
+            `/api/getRoleValueAndReportingTo/${user.email}`
+          );
+
+          setUserRole(roleResponse.data); // Store the user's role in state
+        } catch (error) {
+          console.log(error.message);
+          // Handle error or display an error message if needed
+        }
+      };
+
+      fetchUserRole();
+    }
+  }, [user.email]); // Only fetch the user's role when the email changes
+
   return (
     <div className="container">
       <div className="row d-flex justify-content-center">

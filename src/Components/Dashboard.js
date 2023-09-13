@@ -17,32 +17,84 @@ import Link from "@mui/material/Link";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { mainListItems, secondaryListItems } from "./listItems";
+//import { mainListItems, secondaryListItems } from "./listItems";
 
-import AllCustomers from "./Customers/Customers";
-import Login from "./Login/Login";
-import AllTasks from "./Task/AllTasks";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import Person2Icon from "@mui/icons-material/Person2";
+import PeopleIcon from "@mui/icons-material/People";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import AttributionIcon from "@mui/icons-material/Attribution";
+import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
+import { useContext } from "react";
+import CrmContext from "../CrmContext";
+import { useNavigate } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
+const listItems = [
+  {
+    role: "Admin",
+    text: "Dashboard",
+    icon: <DashboardIcon />,
+    to: "/admin_dashboard_metrics",
+  },
+  {
+    role: "Admin",
+    text: "Customers",
+    icon: <PeopleIcon />,
+    to: "/customers",
+  },
+  {
+    role: "Admin",
+    text: "Reports",
+    icon: <BarChartIcon />,
+    to: "/reports",
+  },
+  {
+    role: "Admin",
+    text: "Users",
+    icon: <Person2Icon />,
+    to: "/all_users",
+  },
+  {
+    role: "Admin",
+    text: "Sales Persons",
+    icon: <AttributionIcon />,
+    to: "/all_salespersons",
+  },
+  {
+    role: "Admin",
+    text: "Contacts",
+    icon: <PermContactCalendarIcon />,
+    to: "/all_contacts",
+  },
+  {
+    role: "Admin",
+    text: "Tasks",
+    icon: <AssignmentIcon />,
+    to: "/all_tasks",
+  },
+  {
+    role: "Admin",
+    text: "Partners & vendors",
+    icon: <HandshakeIcon />,
+    to: "/all_vendors_partners",
+  },
+  {
+    role: "Admin",
+    text: "Opportunity",
+    icon: <TipsAndUpdatesIcon />,
+    to: "/all_opportunities",
+  },
+];
+const SalesPersonListItem = [];
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -93,16 +145,31 @@ const Drawer = styled(MuiDrawer, {
 const defaultTheme = createTheme();
 
 export default function Dashboard({ contentComponent: ContentComponent }) {
-  const [open, setOpen] = React.useState(false);
+  const { isDrawerOpen, setIsDrawerOpen, role } = useContext(CrmContext);
+
+  const isSalesPerson = role === "SalesPerson";
+
+  //const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
-    setOpen(!open);
+    setIsDrawerOpen(!isDrawerOpen);
+    //setOpen(!open);
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      localStorage.clear();
+      navigate("/login"); // Redirect user to the login page
+    }
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        <AppBar position="absolute" open={isDrawerOpen}>
           <Toolbar
             sx={{
               pr: "24px", // keep right padding when drawer closed
@@ -115,7 +182,7 @@ export default function Dashboard({ contentComponent: ContentComponent }) {
               onClick={toggleDrawer}
               sx={{
                 marginRight: "36px",
-                ...(open && { display: "none" }),
+                ...(isDrawerOpen && { display: "none" }),
               }}
             >
               <MenuIcon />
@@ -137,12 +204,12 @@ export default function Dashboard({ contentComponent: ContentComponent }) {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton color="inherit">
+            <IconButton onClick={handleLogout} color="inherit">
               <PowerSettingsNewIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
+        <Drawer variant="permanent" open={isDrawerOpen}>
           <Toolbar
             sx={{
               display: "flex",
@@ -157,9 +224,20 @@ export default function Dashboard({ contentComponent: ContentComponent }) {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
-            {/* <Divider sx={{ my: 1 }} />
-            {secondaryListItems} */}
+            {listItems
+              .filter((item) => item.role === "Admin")
+              .map((item, index) => (
+                <Link
+                  key={index}
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={item.to}
+                >
+                  <ListItemButton onClick={() => navigate(item.to)}>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.text} />
+                  </ListItemButton>
+                </Link>
+              ))}
           </List>
         </Drawer>
         <Box
