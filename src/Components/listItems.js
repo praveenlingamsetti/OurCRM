@@ -43,7 +43,7 @@ export const mainListItems = (
         <ListItemText primary="Reports" />
       </ListItemButton>
     </Link>
-    <Link to="/users" style={{ textDecoration: "none", color: "black" }}>
+    <Link to="/all_users" style={{ textDecoration: "none", color: "black" }}>
       <ListItemButton>
         <ListItemIcon>
           <Person2Icon />
@@ -52,7 +52,7 @@ export const mainListItems = (
       </ListItemButton>
     </Link>
     <Link
-      to="/sales-persons"
+      to="/all_salespersons"
       style={{ textDecoration: "none", color: "black" }}
     >
       <ListItemButton>
@@ -62,7 +62,7 @@ export const mainListItems = (
         <ListItemText primary="Sales Person" />
       </ListItemButton>
     </Link>
-    <Link style={{ textDecoration: "none", color: "black" }} to="/contacts">
+    <Link style={{ textDecoration: "none", color: "black" }} to="/all_contacts">
       <ListItemButton>
         <ListItemIcon>
           <PermContactCalendarIcon />
@@ -70,7 +70,7 @@ export const mainListItems = (
         <ListItemText primary="Contact" />
       </ListItemButton>
     </Link>
-    <Link style={{ textDecoration: "none", color: "black" }} to="/task">
+    <Link style={{ textDecoration: "none", color: "black" }} to="/all_tasks">
       <ListItemButton>
         <ListItemIcon>
           <AssignmentIcon />
@@ -80,7 +80,7 @@ export const mainListItems = (
     </Link>
     <Link
       style={{ textDecoration: "none", color: "black" }}
-      to="/partners-vendors"
+      to="/all_vendors_partners"
     >
       <ListItemButton>
         <ListItemIcon>
@@ -89,7 +89,10 @@ export const mainListItems = (
         <ListItemText primary="Partners & vendors" />
       </ListItemButton>
     </Link>
-    <Link to="offering" style={{ textDecoration: "none", color: "black" }}>
+    <Link
+      to="/all_offerings"
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <ListItemButton>
         <ListItemIcon>
           <LocalOfferIcon />
@@ -97,7 +100,10 @@ export const mainListItems = (
         <ListItemText primary="Offering" />
       </ListItemButton>
     </Link>
-    <Link to="/opportunity" style={{ textDecoration: "none", color: "black" }}>
+    <Link
+      to="/all_opportunities"
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <ListItemButton>
         <ListItemIcon>
           <TipsAndUpdatesIcon />

@@ -149,7 +149,6 @@ const ContactForm = () => {
   // JSX code for rendering the ContactForm component
   return (
     <div>
-      <Dashboard />
       <div className="contacts-container">
         <div className="buttons">
           <button

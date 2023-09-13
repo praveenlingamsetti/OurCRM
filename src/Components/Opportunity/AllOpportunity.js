@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
-import Dashboard from "../Header/Dashboard";
+//import Dashboard from "../Header/Dashboard";
 import api from "../../util/api";
 import "./index.css";
 
@@ -127,7 +127,6 @@ function AllOpportunities() {
 
   return (
     <div>
-      <Dashboard />
       <div className="opportunities-container">
         <div className="buttons">
           <button

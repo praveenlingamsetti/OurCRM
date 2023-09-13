@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import api from "../../../util/api";
+import api from "../../util/api";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Dashboard from "../Header/Dashboard";
 
 // Define initial state for the contact information form
 const initialState = {
@@ -63,7 +62,6 @@ const ContactCreate = () => {
 
   return (
     <div>
-      <Dashboard />
       <div className="vendors-container">
         <div className="buttons">
           <button

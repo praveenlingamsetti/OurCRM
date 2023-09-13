@@ -89,7 +89,6 @@ const Offering = () => {
   // JSX code for rendering the OfferingModule component
   return (
     <div>
-      <Dashboard />
       <div className="offerings-container">
         <div className="buttons">
           <button

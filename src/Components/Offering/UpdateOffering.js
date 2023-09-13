@@ -91,7 +91,6 @@ export default function UpdateOffering() {
   // JSX code for rendering the UpdateOffering component
   return (
     <div>
-      <Dashboard />
       <div className="offerings-container">
         <div className="buttons">
           <button

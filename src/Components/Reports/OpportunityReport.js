@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import api from "../../../util/api";
+import api from "../../util/api";
 import { DataGrid } from "@mui/x-data-grid";
-import "./Report.css";
+import "./index.css";
 
 function OpportunityReport() {
   // Initialize state variables

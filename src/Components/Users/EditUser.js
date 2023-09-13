@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import api from "../../../util/api";
+import api from "../../util/api";
 import toast from "react-hot-toast";
 import { useNavigate, useLocation } from "react-router-dom";
 //import Dashboard from '../Header/Dashboard';
@@ -108,7 +108,6 @@ const EditUser = () => {
 
   return (
     <div>
-      <Dashboard />
       <div className="users-container">
         <div className="buttons">
           <button

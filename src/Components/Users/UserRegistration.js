@@ -150,7 +150,6 @@ const UserRegister = () => {
   });
   return (
     <div>
-      <Dashboard />
       <div className="users-container">
         <div className="buttons">
           <button

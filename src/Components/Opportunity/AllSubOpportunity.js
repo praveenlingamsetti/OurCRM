@@ -135,7 +135,6 @@ const OpportunitySubList = () => {
   };
   return (
     <div>
-      <Dashboard />
       <div className="opportunities-container">
         <div className="buttons">
           {oppSubList?.length === 1 && (

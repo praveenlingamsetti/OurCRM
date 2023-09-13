@@ -1,72 +1,65 @@
-.vendors-container {
+.salespersons-container {
   padding: 10px;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 80vh;
 }
-.vendorbtn {
+.salesPersonbtn {
   width: 200px;
   height: 40px;
   color: #ffffff;
+  border-radius: 8px;
   margin-right: 20px;
   font-size: 18px;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  border-radius: 8px;
+}
+.salesperson-table-container {
+  height: 60vh;
+  overflow-y: scroll;
 }
 @media screen and (max-width: 400px) {
-  .vendorbtn {
+  .salesPersonbtn {
     width: 150px;
     font-size: 13px;
   }
 }
-.vendor-container {
-  height: 80vh;
+.salesperson-container {
+  height: 70vh;
   display: flex;
   flex-direction: column;
   margin: 30px;
 }
-.vendor-headings {
+.salesperson-headings {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: #ffffff;
 }
-.vendor-delete-btn {
-  color: #ffffff;
+.salesperson-view-btn {
+  margin-bottom: 10px;
   background-color: #1d1a69;
+  border-radius: 6px;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   height: 40px;
-  border-radius: 6px;
 }
-@media screen and (max-width: 400px) {
-  .vendor-headings {
-    flex-direction: column;
-  }
-  .vendor-delete-btn {
-    margin-bottom: 10px;
-  }
-}
-.vendor-main-heading {
+.salesperson-main-heading {
   font-size: 35px;
   text-decoration: underline;
   color: #1d1a69;
   margin-bottom: 20px;
 }
 @media screen and (max-width: 768px) {
-  .vendor-main-heading {
-    font-size: 25px;
+  .salesperson-main-heading {
+    font-size: 20px;
   }
 }
-.vendor-table-container {
-  height: 60vh;
-  overflow-y: scroll;
-}
-.vendor-table {
+.salesperson-table {
   background-color: #ffffff;
   width: 100%;
 }

@@ -1,7 +1,7 @@
 // Import necessary modules and components
 import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid"; // Import DataGrid component from Material-UI
-import Dashboard from "../Header/Dashboard";
+//import Dashboard from "../Header/Dashboard";
 import { useNavigate } from "react-router-dom";
 // Import CSS styles for the component
 import "./index.css";
@@ -198,7 +198,6 @@ function AllContacts() {
   // Render the component's JSX content
   return (
     <div>
-      <Dashboard />
       <div className="contacts-container">
         <div className="buttons">
           <button

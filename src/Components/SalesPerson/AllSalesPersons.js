@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../util/api";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 //import Dashboard from "../Header/Dashboard";
@@ -147,7 +147,6 @@ const SalesPersonData = () => {
   };
   return (
     <div>
-      <Dashboard />
       <div className="users-container">
         <div className="buttons">
           <button

@@ -17,7 +17,7 @@ import api from "../../util/api";
 import "./index.css";
 
 function AllTasks() {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const [contactData, setContactData] = useState([]);
   const [data, setData] = useState([]);
   const [latestTaskStatus, setLatestTaskStatus] = useState([]);
@@ -405,15 +405,15 @@ function AllTasks() {
     setSelectedRow(params.id);
     setDat(params.row);
     setTaskId(params.row.taskId);
-    //    navigate("/selected-task", {
-    //       state: {
-    //         dat: params.row,
+    navigate("/selected-task", {
+      state: {
+        dat: params.row,
 
-    //         id: params.row.taskId,
-    //         allSalesPersons: allSalesPersons,
-    //         allContacts: allContacts,
-    //       },
-    //     });
+        id: params.row.taskId,
+        allSalesPersons: allSalesPersons,
+        allContacts: allContacts,
+      },
+    });
     setTimeout(() => {
       // after selecting the row this code will run after one second
       latestStatusByTask(params.row.taskId) // based on the selected task  latestStatusByTask will call and then latest task status set into state

@@ -74,7 +74,6 @@ const UpdateSalesPerson = () => {
   // console.log(sales_person_details)
   return (
     <div>
-      <Dashboard />
       <div className="salespersons-container">
         <div className="buttons">
           <button

@@ -1,10 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Dashboard from "./Components/Dashboard";
+//import Dashboard from "./Components/Dashboard";
 import AllCustomersView from "./Components/Customers/CustomersView";
-import AllTaskView from "./Components/AllTask/AllTaskView";
-import DashboardView from "./Components/dashboard/DashboardView";
 import AllContactsPage from "./Components/Contacts/contactView";
 import CreateContactPage from "./Components/Contacts/CreateContactView";
 import UpdateContactPage from "./Components/Contacts/UpdateContactView";
@@ -17,7 +15,6 @@ import AllVendorsAndPartnersPage from "./Components/VendorsAndPartners/AllVendor
 import CreateVendorOrPartnerPage from "./Components/VendorsAndPartners/CreateVendorAndPartnerView";
 import UpdateVendorOrPartnerPage from "./Components/VendorsAndPartners/UpdateVendorOrPartnerView";
 import CreateTaskPage from "./Components/Task/CreateTaskView";
-
 import UpdateOfferingPage from "./Components/Offering/UpdateOfferingView";
 import AllOfferingPage from "./Components/Offering/OfferingView";
 import CreateOfferingPage from "./Components/Offering/CreateOfferingView";
@@ -26,15 +23,17 @@ import AllUsersPage from "./Components/Users/AllUserView";
 import EditUserPage from "./Components/Users/EditUserView";
 import UserRegisterPage from "./Components/Users/UserRegistrationView";
 import SelectedTaskPage from "./Components/Task/SelectedTaskView";
-import AllOpportunities from "./Components/Opportunity/AllOpportunity";
 import AllOpportunitiesPage from "./Components/Opportunity/AllOpportunityView";
-
+import AllTaskPage from "./Components/Task/AllTaskView";
+import Login from "./Components/Login/Login";
+import SelectedTask from "./Components/Task/SelectedTask";
 const App = () => (
   <Router>
     <Routes>
-      <Route path="/task" element={<AllTaskView />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="all_tasks" element={<AllTaskPage />} />
       <Route path="/customers" element={<AllCustomersView />} />
-      <Route path="/" element={<DashboardView />} />
+
       <Route path="/create_user" element={<UserRegisterPage />} />
       <Route path="/update_user" element={<EditUserPage />} />
       <Route path="/all_users" element={<AllUsersPage />} />
@@ -67,10 +66,11 @@ const App = () => (
         path="/all_subopportunities"
         element={<OpportunitySubListPage />}
       />
+      <Route path="/all_contacts" element={<AllContactsPage />} />
+      <Route path="/create_contact" element={<CreateContactPage />} />
+      <Route path="/update_contact" element={<UpdateContactPage />} />
+      <Route path="selected-task" element={<SelectedTask />} />
     </Routes>
-    <Route path="/all_contacts" element={<AllContactsPage />} />
-    <Route path="/create_contact" element={<CreateContactPage />} />
-    <Route path="/update_contact" element={<UpdateContactPage />} />
   </Router>
 );
 

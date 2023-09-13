@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast"; // Import a library for displaying toast notifications
-import "./Contact.css";
-import Dashboard from "../Header/Dashboard";
+import "./index.css";
 
 // Define the functional component called UpdateContact
 export default function UpdateContact() {
@@ -98,7 +97,6 @@ export default function UpdateContact() {
   // JSX code for rendering the Update Contact form
   return (
     <div>
-      <Dashboard />
       <div className="contacts-container">
         <div className="buttons">
           <button

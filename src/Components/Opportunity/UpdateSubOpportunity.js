@@ -113,7 +113,6 @@ const UpdateOppSub = () => {
   // Render the component's UI
   return (
     <div>
-      <Dashboard />
       <div className="opportunities-container">
         <div className="buttons">
           <button

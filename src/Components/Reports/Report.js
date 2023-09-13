@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Dashboard from "../Header/Dashboard";
+//import Dashboard from "../Header/Dashboard";
 import CustomerReport from "./CustomerReport";
 import SalesPersonReport from "./SalesPersonReport";
 import OpportunityReport from "./OpportunityReport";
@@ -47,7 +47,7 @@ function Report() {
   return (
     <div>
       {/* Render the Dashboard component for navigation */}
-      <Dashboard />
+
       <div className="report-users-container">
         <div className="report-buttons">
           <div className="btns">

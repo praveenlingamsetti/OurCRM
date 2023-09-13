@@ -13,12 +13,11 @@ import {
 } from "@mui/joy";
 import Typography from "@mui/material/Typography";
 import toast from "react-hot-toast";
-
-import "./Task.css";
+import UpdateTask from "./UpdateTask";
+import "./index.css";
 import { Link, useLocation } from "react-router-dom";
-import UpdateTask from "../../SalesPerson/SalesPersonTasks/UpdateTask";
-import SalesPersonDashboard from "../../SalesPerson/SalesPersonHeader/SalesPersonDashboard";
-import Dashboard from "../Header/Dashboard";
+//import UpdateTask from "../../SalesPerson/SalesPersonTasks/UpdateTask";
+//import SalesPersonDashboard from "../../SalesPerson/SalesPersonHeader/SalesPersonDashboard";
 
 const SelectedTask = (props) => {
   const location = useLocation();
@@ -197,8 +196,6 @@ const SelectedTask = (props) => {
 
   return (
     <div>
-      {!IsAdmin && <SalesPersonDashboard />}
-      {IsAdmin && <Dashboard />}
       <div>
         <div className="heading-container">
           <h4> Selected Task</h4>

@@ -197,7 +197,6 @@ function AllVendorsPartners() {
   };
   return (
     <div>
-      <Dashboard />
       <div className="vendors-container">
         <div className="buttons">
           <button
