@@ -156,7 +156,6 @@
 .AddTask-container {
   width: 100%;
   height: 70vh;
-  overflow-y: scroll;
   background-color: white; /* Set your desired background color */
   border-radius: 12px;
   box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1); /*Add a subtle shadow */

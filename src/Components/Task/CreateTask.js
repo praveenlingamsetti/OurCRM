@@ -644,16 +644,7 @@ const Res = () => {
               </div>
               <br />
               <div className="text-center">
-                <button
-                  style={{
-                    marginRight: "20px",
-                    marginBottom: "10px",
-                    width: "80px",
-                  }}
-                  onClick={onclickAddTask}
-                >
-                  Add Task
-                </button>
+                <Button onClick={onclickAddTask}>Add Task</Button>
               </div>
             </div>
           </Box>

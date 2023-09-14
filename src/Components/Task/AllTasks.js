@@ -15,6 +15,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
 import api from "../../util/api";
 import "./index.css";
+import no_data_found from "../../Images/no_data_found.png";
 
 function AllTasks() {
   const navigate = useNavigate();
@@ -433,7 +434,7 @@ function AllTasks() {
           <button
             style={{ backgroundColor: "#1d1a69" }}
             className="userbtn"
-            //onClick={() => navigate("/create_task")}
+            onClick={() => navigate("/create_task")}
           >
             Create Task
           </button>
@@ -856,7 +857,11 @@ function AllTasks() {
                 />
               </div>
             ) : (
-              "No Data Found"
+              <img
+                style={{ height: "50vh", marginLeft: "20vw" }}
+                src={no_data_found}
+                alt="img"
+              />
             )}
           </div>
         </div>

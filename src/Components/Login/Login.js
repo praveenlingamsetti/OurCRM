@@ -59,15 +59,33 @@ const Login = () => {
       localStorage.setItem("userId", response.data.userId);
       toast.success("Login successful");
       if (response.status === 200) {
-        // Fetch the user's role after successful login
-        const roleResponse = await axios.get(
-          `/api/getRoleValueAndReportingTo/${user.email}`
-        );
-        console.log(roleResponse);
-        // console.log(response);
-        //setUserRole(roleResponse.data); // Store the user's role in state
-        setRole(roleResponse.data.role);
-        navigate("/all_tasks");
+        try {
+          const res = await fetch(
+            `/api/getRoleValueAndReportingTo/${user.email}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${response.data.jwtToken}`,
+              },
+            }
+          );
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await res.json();
+          //console.log(data, "oooooooooooo");
+          setRole(data.role);
+          if (data.role === "SalesPerson") {
+            navigate("/salesperson_dashboard_metrics");
+          } else {
+            navigate("/all_tasks");
+          }
+        } catch (error) {
+          // Handle any error that occurred during the fetch request
+          console.error("Error:", error);
+          // setError("Failed to fetch tasks. Please try again later.");
+        }
       }
       // Reset the user state to the initial state
       setUser(initialState);

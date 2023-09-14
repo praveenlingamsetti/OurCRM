@@ -1,0 +1,11 @@
+.salesperson-main-dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}

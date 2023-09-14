@@ -17,8 +17,7 @@ import Link from "@mui/material/Link";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-//import { mainListItems, secondaryListItems } from "./listItems";
-
+import LightTooltip from "@mui/material/Tooltip";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -38,63 +37,6 @@ import { useContext } from "react";
 import CrmContext from "../CrmContext";
 import { useNavigate } from "react-router-dom";
 
-const listItems = [
-  {
-    role: "Admin",
-    text: "Dashboard",
-    icon: <DashboardIcon />,
-    to: "/admin_dashboard_metrics",
-  },
-  {
-    role: "Admin",
-    text: "Customers",
-    icon: <PeopleIcon />,
-    to: "/customers",
-  },
-  {
-    role: "Admin",
-    text: "Reports",
-    icon: <BarChartIcon />,
-    to: "/reports",
-  },
-  {
-    role: "Admin",
-    text: "Users",
-    icon: <Person2Icon />,
-    to: "/all_users",
-  },
-  {
-    role: "Admin",
-    text: "Sales Persons",
-    icon: <AttributionIcon />,
-    to: "/all_salespersons",
-  },
-  {
-    role: "Admin",
-    text: "Contacts",
-    icon: <PermContactCalendarIcon />,
-    to: "/all_contacts",
-  },
-  {
-    role: "Admin",
-    text: "Tasks",
-    icon: <AssignmentIcon />,
-    to: "/all_tasks",
-  },
-  {
-    role: "Admin",
-    text: "Partners & vendors",
-    icon: <HandshakeIcon />,
-    to: "/all_vendors_partners",
-  },
-  {
-    role: "Admin",
-    text: "Opportunity",
-    icon: <TipsAndUpdatesIcon />,
-    to: "/all_opportunities",
-  },
-];
-const SalesPersonListItem = [];
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -147,14 +89,92 @@ const defaultTheme = createTheme();
 export default function Dashboard({ contentComponent: ContentComponent }) {
   const { isDrawerOpen, setIsDrawerOpen, role } = useContext(CrmContext);
 
-  const isSalesPerson = role === "SalesPerson";
+  const AdminListItems = [
+    {
+      role: "Admin",
+      text: "Dashboard",
+      icon: <DashboardIcon />,
+      to: "/admin_dashboard_metrics",
+    },
+    {
+      role: "Admin",
+      text: "Customers",
+      icon: <PeopleIcon />,
+      to: "/customers",
+    },
+    {
+      role: "Admin",
+      text: "Reports",
+      icon: <BarChartIcon />,
+      to: "/reports",
+    },
+    {
+      role: "Admin",
+      text: "Users",
+      icon: <Person2Icon />,
+      to: "/all_users",
+    },
+    {
+      role: "Admin",
+      text: "Sales Persons",
+      icon: <AttributionIcon />,
+      to: "/all_salespersons",
+    },
+    {
+      role: "Admin",
+      text: "Contacts",
+      icon: <PermContactCalendarIcon />,
+      to: "/all_contacts",
+    },
+    {
+      role: "Admin",
+      text: "Tasks",
+      icon: <AssignmentIcon />,
+      to: "/all_tasks",
+    },
+    {
+      role: "Admin",
+      text: "Partners & vendors",
+      icon: <HandshakeIcon />,
+      to: "/all_vendors_partners",
+    },
+    {
+      role: "Admin",
+      text: "Opportunity",
+      icon: <TipsAndUpdatesIcon />,
+      to: "/all_opportunities",
+    },
+  ];
+  const SalesPersonListItem = [
+    {
+      role: "SalesPerson",
+      text: "Dashboard",
+      icon: <DashboardIcon />,
+      to: "/salesperson_dashboard_metrics",
+    },
+    {
+      role: "SalesPerson",
+      text: "Contacts",
+      icon: <PermContactCalendarIcon />,
+      to: "/create_contact_by_salesperson",
+    },
+    {
+      role: "SalesPerson",
+      text: "Tasks",
+      icon: <AssignmentIcon />,
+      to: "/salesperson_tasks",
+    },
+  ];
 
+  const listItems =
+    role === "SalesPerson" ? SalesPersonListItem : AdminListItems;
+  console.log("r", role);
   //const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
     //setOpen(!open);
   };
-
+  console.log(listItems);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -196,17 +216,23 @@ export default function Dashboard({ contentComponent: ContentComponent }) {
             >
               KLOC CRM
             </Typography>
-            <IconButton color="inherit">
-              <AccountBoxIcon />
-            </IconButton>
-            <IconButton color="inherit">
-              <Badge badgeContent={0} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton onClick={handleLogout} color="inherit">
-              <PowerSettingsNewIcon />
-            </IconButton>
+            <LightTooltip title="profile">
+              <IconButton color="inherit">
+                <AccountBoxIcon />
+              </IconButton>
+            </LightTooltip>
+            <LightTooltip title="notification">
+              <IconButton color="inherit">
+                <Badge badgeContent={0} color="secondary">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+            </LightTooltip>
+            <LightTooltip title="logout">
+              <IconButton onClick={handleLogout} color="inherit">
+                <PowerSettingsNewIcon />
+              </IconButton>
+            </LightTooltip>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={isDrawerOpen}>
@@ -224,9 +250,8 @@ export default function Dashboard({ contentComponent: ContentComponent }) {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {listItems
-              .filter((item) => item.role === "Admin")
-              .map((item, index) => (
+            {listItems.map((item, index) => (
+              <LightTooltip title={item.text} placement="right">
                 <Link
                   key={index}
                   style={{ textDecoration: "none", color: "black" }}
@@ -237,7 +262,8 @@ export default function Dashboard({ contentComponent: ContentComponent }) {
                     <ListItemText primary={item.text} />
                   </ListItemButton>
                 </Link>
-              ))}
+              </LightTooltip>
+            ))}
           </List>
         </Drawer>
         <Box
